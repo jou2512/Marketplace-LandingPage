@@ -4,6 +4,7 @@ export const metadata = {
 }
 
 import Link from 'next/link'
+import PasswordSettings from "@/components/PasswordReset";
 
 export default function SignIn() {
   return (
@@ -56,6 +57,7 @@ export default function SignIn() {
                       <input type="checkbox" className="form-checkbox" />
                       <span className="text-gray-400 ml-2">Keep me signed in</span>
                     </label>
+                    <PasswordSettings />
                     <Link href="/reset-password" className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out">Forgot Password?</Link>
                   </div>
                 </div>
