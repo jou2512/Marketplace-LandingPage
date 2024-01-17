@@ -11,24 +11,24 @@ import { useMemberstack } from "@memberstack/react";
 import Link from "next/link";
 import { useState } from "react";
 
-const agreementContent = (
-  <>
-    I agree to be contacted by Open PRO about this offer as per the Open PRO{" "}
+const LoginContent = (
+  <div className="flex justify-between">
+    <label className="flex items-center">
+      <input name="keep-signed-in" type="checkbox" className="form-checkbox" />
+      <span className="text-gray-400 ml-2">Keep me signed in</span>
+    </label>
     <Link
-      href="#"
-      className="underline text-gray-400 hover:text-gray-200 hover:no-underline transition duration-150 ease-in-out"
+      href="/reset-password"
+      className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
     >
-      Privacy Policy
+      Forgot Password?
     </Link>
-    .
-  </>
+  </div>
 );
 
-export const SignUpForm: React.FC = () => {
+export const SignInForm: React.FC = () => {
   const memberstack = useMemberstack();
-  const [errorMessage, setErrorMessage] = useState<string | null>(
-    null
-  );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,11 +36,11 @@ export const SignUpForm: React.FC = () => {
     const formData = new FormData(event.currentTarget);
     const formValues = Object.fromEntries(formData.entries());
 
-    // Access the form values
-    const fullName = formValues["full-name"];
-    const companyName = formValues["company-name"];
+    console.log(formValues)
+
     const email = formValues["email"];
     const password = formValues["password"];
+    const staysingedin = formValues["keep-signed-in"];
 
     // Sign up the member
     const emailValue = email.toString();
@@ -48,49 +48,20 @@ export const SignUpForm: React.FC = () => {
 
     try {
       await memberstack
-        .signupMemberEmailPassword({
+        .loginMemberEmailPassword({
           email: emailValue,
           password: passwordValue,
-          plans: [
-            {
-              planId: "pln_tier-1-single-component-i1t40695", // Free plan only
-            },
-            {
-              planId: "pln_single-project-access-a5t506jx", // Free plan only
-            },
-          ],
         })
         .then((result) => {
           console.log(result);
-          console.log(memberstack.getCurrentMember());
         });
-
     } catch (error) {
-      console.log((error as Error).message);
-      
-      setErrorMessage((error as Error).message);
+      console.log(error);
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormRow>
-        <InputWithLabel
-          id="full-name"
-          label="Full Name"
-          placeholder="First and last name"
-          type="text"
-          required
-        />
-      </FormRow>
-      <FormRow>
-        <InputWithLabel
-          id="company-name"
-          label="Company Name"
-          placeholder="Your company or app name"
-          type="text"
-        />
-      </FormRow>
       <FormRow>
         <InputWithLabel
           id="email"
@@ -114,9 +85,9 @@ export const SignUpForm: React.FC = () => {
           <p className="text-red-500 text-md mt-2">{errorMessage}</p>
         )}
       </FormRow>
-      <Description content={agreementContent} />
+      <FormRow>{LoginContent}</FormRow>
       <FormRow>
-        <FormButton buttonText="Sign up" />
+        <FormButton buttonText="Sign In" />
       </FormRow>
     </Form>
   );

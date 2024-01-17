@@ -1,10 +1,8 @@
 "use client";
 
 import PageIllustration from "@/components/page-illustration";
-import {
-  LoggedOut,
-  MemberstackProtected
-} from "@memberstack/react";
+import { LogoutForm } from "@/components/ui/Forms/Logout-Form";
+import { LoggedIn, LoggedOut, MemberstackProtected } from "@memberstack/react";
 import router from "next/router";
 import React from "react";
 
@@ -14,11 +12,18 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <LoggedOut>
-      <main className="grow">
-        <PageIllustration />
-        {children}
-      </main>
-    </LoggedOut>
+    <>
+      <LoggedOut>
+        <main className="grow">
+          <PageIllustration />
+          {children}
+        </main>
+      </LoggedOut>
+      <LoggedIn>
+        <MemberstackProtected>
+          <main className="grow mt-12"><LogoutForm /></main>
+        </MemberstackProtected>
+      </LoggedIn>
+    </>
   );
 }

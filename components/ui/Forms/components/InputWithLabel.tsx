@@ -14,7 +14,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   required,
 }) => {
   return (
-    <div className="w-full px-3">
+    <>
       <label
         className="block text-gray-300 text-sm font-medium mb-1"
         htmlFor={id}
@@ -30,7 +30,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
         placeholder={placeholder}
         required={required}
       />
-    </div>
+    </>
   );
 };
 
