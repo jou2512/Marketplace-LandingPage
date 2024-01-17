@@ -1,21 +1,18 @@
 "use client";
 
 import React from "react";
-import { MemberstackProvider, MemberstackProtected } from "@memberstack/react";
+import MemberstackProviderComponent from '@/contexts/MemberstackProviderContext';
 // Importieren Sie weitere Kontexte nach Bedarf
-const MemberstackConfig = {
-  publicKey: "pk_0a375c2e6f3ec1940676",
-};
 
 export default function ContextProvider({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <MemberstackProvider config={MemberstackConfig}>
-      {/* Fügen Sie weitere Provider hier hinzu */}
-      {children as React.ReactElement | React.ReactElement[]}
-    </MemberstackProvider>
-  );
+    return (
+        <MemberstackProviderComponent>
+            {/* Fügen Sie weitere Provider hier hinzu */}
+            {children}
+        </MemberstackProviderComponent>
+    );
 }
