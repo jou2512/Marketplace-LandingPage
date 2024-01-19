@@ -1,5 +1,6 @@
 type FormRowProps = {
   children: React.ReactNode;
+  key?: string | number;
 };
 
 const FormRow: React.FC<FormRowProps> = ({ children }) => {

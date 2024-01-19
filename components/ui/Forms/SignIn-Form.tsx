@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Description,
   Form,
   FormButton,
   FormRow,
@@ -56,7 +55,9 @@ export const SignInForm: React.FC = () => {
           console.log(result);
         });
     } catch (error) {
-      console.log(error);
+      console.log((error as Error).message);
+
+      setErrorMessage((error as Error).message);
     }
   };
 
