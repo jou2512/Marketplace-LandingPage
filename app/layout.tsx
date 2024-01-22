@@ -5,6 +5,7 @@ import { Inter, Architects_Daughter } from "next/font/google";
 import Header from "@/components/ui/header";
 import Banner from "@/components/banner";
 import ContextProvider from "@/contexts/ContextProvider";
+import { Toaster } from "components/shadcn-ui/toaster";
 
 const inter = Inter({
   subsets: ["latin"],
