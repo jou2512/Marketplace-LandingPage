@@ -3,6 +3,7 @@ export const metadata = {
   description: 'Page description',
 }
 
+import { ResetPasswordForm } from '@/components/ui/Forms/ResetPassword-Form'
 import Link from 'next/link'
 
 export default function ResetPassword() {
@@ -19,19 +20,7 @@ export default function ResetPassword() {
 
           {/* Form */}
           <div className="max-w-sm mx-auto">
-            <form>
-              <div className="flex flex-wrap -mx-3 mb-4">
-                <div className="w-full px-3">
-                  <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                  <input id="email" type="email" className="form-input w-full text-gray-300" placeholder="you@yourcompany.com" required />
-                </div>
-              </div>
-              <div className="flex flex-wrap -mx-3 mt-6">
-                <div className="w-full px-3">
-                  <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">Reset Password</button>
-                </div>
-              </div>
-            </form>
+            <ResetPasswordForm />
             <div className="text-gray-400 text-center mt-6">
               <Link href="/signin" className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out">Cancel</Link>
             </div>
