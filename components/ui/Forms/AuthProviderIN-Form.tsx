@@ -1,10 +1,13 @@
 "use client";
 
 import React from "react";
-import AuthProviderButton from "@/components/ui/Forms/components/AuthProviderButton";
 import GoogleIcon from "@/assets/googleicon.svg";
 import FacebookIcon from "@/assets/facebookIcon.svg";
-import { Form, FormRow } from "@/components/ui/Forms/components";
+import {
+  Form,
+  FormRow,
+  AuthProviderButton
+} from "@/components/ui/Forms/components";
 
 const AuthProvider = {
   google: {

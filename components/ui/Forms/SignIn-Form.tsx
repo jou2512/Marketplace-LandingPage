@@ -62,7 +62,7 @@ export const SignInForm: React.FC = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} method="POST">
       <FormRow>
         <InputWithLabel
           id="email"
