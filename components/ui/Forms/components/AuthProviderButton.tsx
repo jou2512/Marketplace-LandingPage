@@ -1,7 +1,6 @@
 import { cn } from "@/util/utils";
 import { useMemberstack } from "@memberstack/react";
 import React from "react";
-import { AuthProviders } from "../AuthProvider-Form";
 
 type AuthProviderButtonProps = {
   icon: React.ReactNode;
