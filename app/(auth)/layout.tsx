@@ -3,7 +3,7 @@
 import PageIllustration from "@/components/page-illustration";
 import { LogoutForm } from "@/components/ui/Forms/Logout-Form";
 import { LoggedIn, LoggedOut, MemberstackProtected } from "@memberstack/react";
-import { Toaster } from "components/shadcn-ui/sonner";
+import { Toaster } from "components/shadcn-ui/toaster";
 import React from "react";
 
 export default function AuthLayout({
@@ -18,15 +18,16 @@ export default function AuthLayout({
           <PageIllustration />
           {children}
         </main>
-        <Toaster />
       </LoggedOut>
       <LoggedIn>
         <MemberstackProtected>
           <main className="grow mt-12">
             <LogoutForm />
+            {children}
           </main>
         </MemberstackProtected>
       </LoggedIn>
+      <Toaster />
     </>
   );
 }

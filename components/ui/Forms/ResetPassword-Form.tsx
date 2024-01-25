@@ -11,10 +11,8 @@ import {
 } from "./components";
 import { SetStateAction, useState } from "react";
 import TokenInput from "./components/TokenInputs/TokenInput1";
-import Link from "next/link";
 import { useToast } from "@/components/shadcn-ui/use-toast";
 import { cn } from "@/util/utils";
-import { Button } from "components/shadcn-ui/button";
 
 export const ResetPasswordForm: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -22,6 +20,7 @@ export const ResetPasswordForm: React.FC = () => {
   const [tokenValues, setTokenValues] = useState(Array(6).fill(""));
 
   const { toast } = useToast();
+
 
   const handleTokenChange = (newTokenValues: SetStateAction<any[]>) => {
     setTokenValues(newTokenValues);
@@ -60,6 +59,15 @@ export const ResetPasswordForm: React.FC = () => {
               console.log(result);
               formElement.reset();
               setTokenValues(Array(6).fill(""));
+              toast({
+          title: "Password has been changed",
+          description: "You can now login with your new Password",
+          variant: "success",
+              });
+              // set a timeout for 1 second and then redirect to /signin
+              setTimeout(() => {
+                window.location.href = "/signin";
+              }, 1000);
             }
           });
       } catch (error) {
@@ -154,18 +162,6 @@ export const ResetPasswordForm: React.FC = () => {
           onValueChange={handleTokenChange}
         />
       </FormRow>
-      <Button
-      type="button"
-      variant="outline"
-        onClick={() => {
-        console.log("test");
-        toast({
-          title: "Password has been changed",
-          description: "You can now login with your newly set Password",
-          variant: "destructive",
-        });
-      }}
-    >testing</Button>
     </>
   );
 
