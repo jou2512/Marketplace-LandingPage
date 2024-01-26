@@ -1,15 +1,19 @@
 import "./css/style.css";
 
-import { Inter, Architects_Daughter } from "next/font/google";
+import {
+  Inter,
+  Architects_Daughter,
+} from "next/font/google";
+
+import { cn } from "@/lib/utils";
 
 import Header from "@/components/ui/header";
 import Banner from "@/components/banner";
 import ContextProvider from "@/contexts/ContextProvider";
-import { Toaster } from "components/shadcn-ui/toaster";
 
-const inter = Inter({
+const fontSans = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -31,10 +35,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}
-        suppressHydrationWarning={true}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased bg-gray-900 text-gray-200 tracking-tight",
+          fontSans.variable,
+          architects_daughter.variable
+        )}
       >
         <div className="flex flex-col min-h-screen overflow-hidden">
           <ContextProvider>

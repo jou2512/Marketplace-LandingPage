@@ -18,7 +18,6 @@ export default function AuthLayout({
           <PageIllustration />
           {children}
         </main>
-        <Toaster />
       </LoggedOut>
       <LoggedIn>
         <MemberstackProtected>
@@ -27,6 +26,7 @@ export default function AuthLayout({
           </main>
         </MemberstackProtected>
       </LoggedIn>
+      <Toaster />
     </>
   );
 }

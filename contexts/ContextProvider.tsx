@@ -2,7 +2,7 @@
 
 import React from "react";
 import MemberstackProviderComponent from '@/contexts/MemberstackProviderContext';
-// Importieren Sie weitere Kontexte nach Bedarf
+import { ThemeProvider } from "@/contexts/theme-provider";
 
 export default function ContextProvider({
     children,
@@ -10,9 +10,16 @@ export default function ContextProvider({
     children: React.ReactNode;
 }) {
     return (
-        <MemberstackProviderComponent>
-            {/* Fügen Sie weitere Provider hier hinzu */}
-            {children}
-        </MemberstackProviderComponent>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+          >
+            <MemberstackProviderComponent>
+                {/* Fügen Sie weitere Provider hier hinzu */}
+                {children}
+            </MemberstackProviderComponent>
+        </ThemeProvider>
     );
 }
