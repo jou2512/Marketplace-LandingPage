@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { DashboardLinks } from "@/data/NavBarConfig";
+import { DashboardLinks } from "@/config/NavBarConfig";
 
 export interface MainNavLinksProps extends React.HTMLAttributes<HTMLElement> {
   links: DashboardLinks[];

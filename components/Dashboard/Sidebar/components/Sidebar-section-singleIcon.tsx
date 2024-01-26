@@ -1,7 +1,7 @@
 // ScrollableSection.tsx
 import { SidebarButton } from "@/components/altered-ui/sidebar-button";
-import { SidebarSectionProps } from "./main-dashboard-sidebar-section";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { SidebarSectionProps } from "./Sidebar-section";
+import { ScrollArea } from "@/components/shadcn-ui/scroll-area";
 
 export interface SingleIconSidebarSectionProps
   extends Omit<Omit<SidebarSectionProps, "buttons">, "key"> {

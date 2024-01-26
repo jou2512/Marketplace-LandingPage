@@ -8,19 +8,25 @@ import { FaRegCreditCard } from "react-icons/fa6";
 import { TbSettings } from "react-icons/tb";
 import { FaRegUserCircle, FaQuestionCircle } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
+import LogoutButton from "components/Dashboard/Sidebar/ui/LogoutButton";
 
-const MainButtons  = [
+const baseUrl = "/dashboards/main-dashboard/";
+
+const MainButtons = [
   {
     icon: <DashboardIcon />,
     label: "Dashboard Home",
+    href: `${baseUrl}`,
   },
   {
     icon: <BsShopWindow />,
     label: "Marketplace",
+    href: `${baseUrl}marketplace`,
   },
   {
     icon: <LuFolderTree />,
     label: "Projects Overview",
+    href: `${baseUrl}projects`,
   },
   // Add other discovery buttons as needed
 ];
@@ -29,22 +35,22 @@ const ProfileButtons = [
   {
     icon: <FaRegCreditCard />,
     label: "Billing & Subscriptions",
+    href: `${baseUrl}billing`,
   },
   {
     icon: <TbSettings />,
     label: "Settings",
+    href: `${baseUrl}settings`,
   },
   {
     icon: <FaRegUserCircle />,
     label: "Profile",
+    href: `${baseUrl}profile`,
   },
   {
     icon: <FaQuestionCircle />,
     label: "Support/FAQ",
-  },
-  {
-    icon: <ImExit />,
-    label: "Logout",
+    href: `${baseUrl}support`,
   },
   // Add other library buttons as needed
 ];
@@ -62,13 +68,11 @@ export const MainDashboardSidebarConfig: SidebarConfig = [
     buttons: ProfileButtons,
     isScrollable: false,
   },
-  /*{
+  {
     type: "customComponent",
-    component: () => {
-      return <h1>hello</h1>;
-    },
+    component: () => <LogoutButton />,
     // Add other properties specific to your custom component
-  },*/
+  },
   // Add more sections or custom components as needed
 ];
 

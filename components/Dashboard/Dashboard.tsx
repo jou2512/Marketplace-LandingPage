@@ -16,7 +16,7 @@ const Dashboard: React.FC<DashboardLayoutProps> = ({
   children,
 }) => {
   return (
-    <div className="hidden flex-col md:flex h-screen w-full fixed overflow-hidden">
+    <div className="hidden flex-col md:flex h-screen w-full fixed overflow-hidden bg-background">
       <div className="border-b">
         <DashboardNavbar links={navbarContent} />
       </div>
@@ -26,7 +26,7 @@ const Dashboard: React.FC<DashboardLayoutProps> = ({
             config={sidebarConfig}
             className="hidden lg:block col-span-1 w-full "
           />
-        <div>{children}</div>
+          <div>{children}</div>
         </div>
       </div>
     </div>

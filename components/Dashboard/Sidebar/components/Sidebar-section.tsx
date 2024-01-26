@@ -1,5 +1,5 @@
 // SidebarSection.tsx multiple icons
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/shadcn-ui/scroll-area";
 import { ButtonList, ButtonListProps } from "@/components/Dashboard/Sidebar/components/Sidebar-ButtonList";
 
 

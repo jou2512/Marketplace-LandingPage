@@ -1,17 +1,25 @@
 import { SidebarConfig } from "@/config/SidebarConfig";
 import Image from "next/image";
-import { default as logo } from "@/../public/icon1.svg";
+import Logo from "@/../assets/icon1.svg";
 import { DashboardLinks } from "@/config/NavBarConfig";
 
-
+const baseUrl = "/dashboards/project-dashboard/";
 
 export const ProjectDashboardSidebarConfig: SidebarConfig = [
   {
     type: "section",
     title: "Discover",
     buttons: [
-      { label: "Button 3", icon: <Image src={logo} alt="sdfdsf" /> },
-      { label: "Button 2", icon: <Image src={logo} alt="sdfdsf" /> },
+      {
+        label: "Button 3",
+        icon: <Logo />,
+        href: `${baseUrl}`,
+      },
+      {
+        label: "Button 2",
+        icon: <Logo />,
+        href: `${baseUrl}testing`,
+      },
     ],
     isScrollable: true,
   },

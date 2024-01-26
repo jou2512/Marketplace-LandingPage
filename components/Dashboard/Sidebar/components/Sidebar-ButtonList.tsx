@@ -9,8 +9,14 @@ export interface ButtonListProps {
 export function ButtonList({ buttons }: ButtonListProps) {
   return (
     <div className="space-y-1">
-      {buttons.map(({ icon, label }, index) => (
-        <SidebarButton key={index} icon={icon} label={label} />
+      {buttons.map(({ icon, label, href, ...props }, index) => (
+        <SidebarButton
+          key={index}
+          icon={icon}
+          label={label}
+          href={href}
+          {...props}
+        />
       ))}
     </div>
   );
