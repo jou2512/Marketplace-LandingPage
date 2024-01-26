@@ -1,5 +1,6 @@
 import VideoThumb from '@/public/images/hero-image-01.jpg'
 import ModalVideo from '@/components/modal-video'
+import { Button } from './shadcn-ui/button'
 
 export default function Hero() {
   return (
@@ -26,8 +27,9 @@ export default function Hero() {
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1 className="h1 mb-4" data-aos="fade-up">Landing template for startups</h1>
             <p className="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
-            <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
+            <div className="max-w-xs mx-auto sm:max-w-none sm:f>lex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
+                <Button >Start free trial</Button>
                 <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Start free trial</a>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
