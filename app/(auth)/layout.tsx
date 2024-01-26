@@ -8,22 +8,26 @@ import React from "react";
 
 export default function AuthLayout({
   children,
+  authpages,
+  dashboard,
 }: {
   children: React.ReactNode;
+  authpages: React.ReactNode;
+  dashboard: React.ReactNode;
 }) {
   return (
     <>
       <LoggedOut>
         <main className="grow">
           <PageIllustration />
-          {children}
+          {authpages}
         </main>
       </LoggedOut>
       <LoggedIn>
         <MemberstackProtected>
           <main className="grow mt-12">
             <LogoutForm />
-            {children}
+            {dashboard}
           </main>
         </MemberstackProtected>
       </LoggedIn>
