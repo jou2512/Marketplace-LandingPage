@@ -15,7 +15,7 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Sidebar({ config, className, ...props }: SidebarProps) {
   return (
-    <div className={cn("py-12 h-full", className)} {...props}>
+    <div className={cn("py-12 h-full border-r", className)} {...props}>
       <div className="h-full flex flex-col">
         {config.map((item, index) => {
           if (item.type === "section") {
